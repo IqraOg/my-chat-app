@@ -1,0 +1,65 @@
+
+<div class="center">
+  <div class="contacts">
+    <i class="fas fa-bars fa-2x"></i>
+    <h2>
+      Contacts
+    </h2>
+    <div class="contact" *ngFor="let ch of chatroom">
+      <div class="pic danvers"></div>
+      <div class="badge">
+        0
+      </div>
+      <div class="name">
+        {{ch.room_name}}
+      </div>
+      <div class="message">
+        ....
+      </div>
+    </div>
+
+  </div>
+  <div class="chat">
+    <div class="contact bar">
+      <div class="pic stark"></div>
+      <div class="name">
+        Administrator
+      </div>
+      <div class="seen">
+        Today at 12:56
+      </div>
+    </div>
+    <div class="messages" id="chat" #chatContainer>
+      <!-- <div class="time">
+          Today at 11:41
+        </div> -->
+
+        
+
+      <ng-container *ngFor="let item of messages">
+        <div class="message stark" *ngIf="item.sender!=='2c2c029fbf13454a9f5af4358bc9c2b7' else sender;">
+          {{item.content}}<br>
+          <small style="font-size:10px;">{{item.creation|date:"shortTime"}}</small>
+        </div>
+        <ng-template #sender>
+          <div class="message  parker">
+            {{item.content}}<br>
+            <small style="font-size:10px;">{{item.creation|date:"shortTime"}}</small>
+          </div>
+        </ng-template>
+      </ng-container>
+      <div class="message" [ngClass]="who_mi=='2c2c029fbf13454a9f5af4358bc9c2b7'?'stark':'parker'">
+        <div class="typing typing-1"></div>
+        <div class="typing typing-2"></div>
+        <div class="typing typing-3"></div>
+      </div>
+    </div>
+    <div class="input">
+      <i class="fas fa-camera"></i><i class="far fa-laugh-beam"></i>
+      <form class="msger-inputarea" [formGroup]="SignupForm" (ngSubmit)="Onsubmit()">
+        <input formControlName="msg" placeholder="Type your message here!" type="text" />
+        <i class="icon send fas fa-paper-plane clickable" aria-hidden="true" (click)="Onsubmit()"></i>
+      </form>
+    </div>
+  </div>
+</div>

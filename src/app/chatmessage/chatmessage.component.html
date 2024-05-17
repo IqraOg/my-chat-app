@@ -1,0 +1,169 @@
+<!--  
+  <div class="container" >
+    <div class="row">
+      <nav class="menu">
+        <ul class="items">
+          <li class="item">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </li>
+          <li class="item">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </li>
+          <li class="item">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </li>
+          <li class="item item-active">
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+          </li>
+          <li class="item">
+            <i class="fa fa-file" aria-hidden="true"></i>
+          </li>
+          <li class="item">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </li>
+        </ul>
+      </nav>
+
+      <section class="discussions">
+        <div class="discussion search">
+          <div class="searchbar">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" placeholder="Search...">
+          </div>
+        </div>
+
+        <ng-container *ngFor="let ch of chatroom">
+  
+        <div class="discussion message-active">
+          <div class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
+            <div class="online"></div>
+          </div>
+
+          <div class="desc-contact" >
+            <p class="name">{{ch.room_name}}</p>
+
+            <p class="message">9 pm at the bar if possible 😳</p>
+          </div>
+          <div class="timer">12 sec</div>
+        </div>
+        </ng-container>
+     
+      </section>
+      <section class="chat">
+        <div class="header-chat">
+          <i class="icon fa fa-user-o" aria-hidden="true"></i>
+          <p class="name">Yash Sharma</p>
+          <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
+        </div> 
+        <ng-container *ngFor="let item of messages">
+          
+          <div class="msg left-msg" *ngIf="item.sender!='Administrator'" style="background:rgb(110, 154, 172);">
+            <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"></div>
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">Received</div>
+                <div class="msg-info-time">{{item.creation}}</div>
+              </div>
+      
+              <div class="msg-text">
+                {{item.content}}
+              </div>
+            </div>
+          </div>
+      
+          <div  class="msg right-msg"  *ngIf="item.sender=='Administrator'" style="background:rgb(77, 122, 77);">
+            <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div>
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name"></div>
+                <div class="msg-info-time">{{item.creation}}</div>
+              </div>
+      
+              <div class="msg-text">
+                {{item.content}}
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="footer-chat" [formGroup]="SignupForm">
+          <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
+          <input formControlName = "msg" type="text" class="write-message" placeholder="Type your message here">
+          <i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true" (click)="onSubmit()"></i>
+      </div>
+      </section>
+    </div>
+  </div> -->
+
+<div class="center">
+  <div class="contacts">
+    <i class="fas fa-bars fa-2x"></i>
+    <h2>
+      Contacts
+    </h2>
+    <div class="contact" *ngFor="let ch of chatroom" (click)="fetchMessages(ch.name,ch.user_email)">
+      <div class="pic danvers"></div>
+      <div class="badge">
+        0
+      </div>
+      <div class="name">
+        {{ch.room_name}}
+      </div>
+      <div class="message">
+        ....
+      </div>
+    </div>
+
+  </div>
+  <div class="chat">
+    <div class="contact bar">
+      <div class="pic stark"></div>
+      <div class="name">
+      Yash Sharma
+      </div>
+      <div class="seen">
+        Today at 12:56
+      </div>
+    </div>
+    <div class="messages" id="chat" #chatContainer>
+      <!-- <div class="time">
+          Today at 11:41
+        </div> -->
+
+
+        <ng-container *ngIf="messages.length>0;else nodata">
+
+     
+      <ng-container *ngFor="let item of messages">
+        <div class="message stark" *ngIf="item.sender!=='Administrator' else sender;">
+          {{item.content}}<br>
+          <small style="font-size:10px;">{{item.creation|date:"shortTime" }}</small>
+        </div>
+        <ng-template #sender>
+          <div class="message  parker">
+            {{item.content}}<br>
+            <small style="font-size:10px;">{{item.creation|date:"shortTime"}}</small>
+          </div>
+        </ng-template>
+      </ng-container>
+      <div class="message" [ngClass]="who_mi=='Administrator'?'parker':'stark'">
+        <div class="typing typing-1"></div>
+        <div class="typing typing-2"></div>
+        <div class="typing typing-3"></div>
+      </div>
+    </ng-container>
+    <ng-template #nodata>
+      Please select any user to chat with
+
+    </ng-template>
+    </div>
+    <div class="input">
+      <i class="fas fa-camera"></i><i class="far fa-laugh-beam"></i>
+      <form class="msger-inputarea" [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+        <input formControlName="msg" placeholder="Type your message here!" type="text" />
+        <i class="icon send fas fa-paper-plane clickable" aria-hidden="true" (click)="onSubmit()"></i>
+      </form>
+    </div>
+  </div>
+</div>
