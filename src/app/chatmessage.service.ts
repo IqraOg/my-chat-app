@@ -27,7 +27,7 @@ export class ChatmessageService {
    getMessages(room:string,email:string): Observable <any> {
    
     return this.http.get(this.APIBaseUrl + this.APIGetUrl +'/'+ room + '/'+ email, {
-      headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjQzYTNlMDliLTQyMzQtNGIzZC1iOTYxLTk3ZTk3MDQ4NjhjNiIsIm5iZiI6MTcxNTkyNTgzOSwiZXhwIjoxNzE1OTQzODM5LCJpYXQiOjE3MTU5MjU4Mzl9.NUUyKcjgTFVeMYC3XQAOY_w10UIpVQ5SaCprE9ON6b0'}
+      headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjVjYTI3MzcwLTEwYzYtNGFjZi1iNTgzLWEzNmUyM2Q5ZGRmMyIsIm5iZiI6MTcxNTk0NjY5OCwiZXhwIjoxNzE1OTY0Njk4LCJpYXQiOjE3MTU5NDY2OTh9.tjYf2BkMLr2gVkAlYJSC9tr8sSOE6yrLeeJp8bZWU1Q'}
     });
 
 
@@ -35,7 +35,7 @@ export class ChatmessageService {
 
 postMessages(data:any): Observable <any>{
   return this.http.post(this.APIBaseUrl + this.APIPostUrl ,data,{
-    headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjQzYTNlMDliLTQyMzQtNGIzZC1iOTYxLTk3ZTk3MDQ4NjhjNiIsIm5iZiI6MTcxNTkyNTgzOSwiZXhwIjoxNzE1OTQzODM5LCJpYXQiOjE3MTU5MjU4Mzl9.NUUyKcjgTFVeMYC3XQAOY_w10UIpVQ5SaCprE9ON6b0'}
+    headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjVjYTI3MzcwLTEwYzYtNGFjZi1iNTgzLWEzNmUyM2Q5ZGRmMyIsIm5iZiI6MTcxNTk0NjY5OCwiZXhwIjoxNzE1OTY0Njk4LCJpYXQiOjE3MTU5NDY2OTh9.tjYf2BkMLr2gVkAlYJSC9tr8sSOE6yrLeeJp8bZWU1Q'}
   }
 
   )};
@@ -43,7 +43,7 @@ postMessages(data:any): Observable <any>{
 
   postmsg(data:any): Observable <any>{
     return this.http.post(this.APIBaseUrl + this.APIPostUrl ,data,{
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjQzYTNlMDliLTQyMzQtNGIzZC1iOTYxLTk3ZTk3MDQ4NjhjNiIsIm5iZiI6MTcxNTkyNTgzOSwiZXhwIjoxNzE1OTQzODM5LCJpYXQiOjE3MTU5MjU4Mzl9.NUUyKcjgTFVeMYC3XQAOY_w10UIpVQ5SaCprE9ON6b0'}
+      headers: {'Authorization': 'BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjVjYTI3MzcwLTEwYzYtNGFjZi1iNTgzLWEzNmUyM2Q5ZGRmMyIsIm5iZiI6MTcxNTk0NjY5OCwiZXhwIjoxNzE1OTY0Njk4LCJpYXQiOjE3MTU5NDY2OTh9.tjYf2BkMLr2gVkAlYJSC9tr8sSOE6yrLeeJp8bZWU1Q'}
     }
   
     )};
@@ -51,7 +51,7 @@ postMessages(data:any): Observable <any>{
    
    getroom(email:string): Observable <any> {
      return this.http.get(this.APIBaseUrl + this.APIGetRoom +'/'+email,{
-      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjQzYTNlMDliLTQyMzQtNGIzZC1iOTYxLTk3ZTk3MDQ4NjhjNiIsIm5iZiI6MTcxNTkyNTgzOSwiZXhwIjoxNzE1OTQzODM5LCJpYXQiOjE3MTU5MjU4Mzl9.NUUyKcjgTFVeMYC3XQAOY_w10UIpVQ5SaCprE9ON6b0'}
+      headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjMmMwMjlmYmYxMzQ1NGE5ZjVhZjQzNThiYzljMmI3IiwiZW1haWwiOiJ5YXNoLnNoYWlsemExMjM0QGdtYWlsLmNvbSIsInJvbGUiOiJQUlRTLEluc3BlY3RvcixGYWN1bHR5LGFwcCIsInNpZCI6IjVjYTI3MzcwLTEwYzYtNGFjZi1iNTgzLWEzNmUyM2Q5ZGRmMyIsIm5iZiI6MTcxNTk0NjY5OCwiZXhwIjoxNzE1OTY0Njk4LCJpYXQiOjE3MTU5NDY2OTh9.tjYf2BkMLr2gVkAlYJSC9tr8sSOE6yrLeeJp8bZWU1Q'}
      }
   )};
 }

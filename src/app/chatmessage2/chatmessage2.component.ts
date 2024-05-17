@@ -26,13 +26,12 @@ export class Chatmessage2Component {
   }
 
   ngOnInit(): void {
-    this.fetchMessages();
+    
     this.getroom();
   }
 
-  fetchMessages() {
-    let email = "2c2c029fbf13454a9f5af4358bc9c2b7";
-    let room = "7c617ce66f2c4e45a1c12d4151e7ecd2";
+  fetchMessages(room:any,email:any) {
+    
     this.chatmessageService.getMessages(room, email).subscribe({
       next: res => {
        let totalMessages = res.length;
@@ -102,6 +101,29 @@ export class Chatmessage2Component {
     });
 
   }
+
+  convertDateTimeToHumanReadable(dateTimeString: string): string {
+    const givenDateTime = new Date(dateTimeString);
+    const now = new Date();
+
+    const givenDate = new Date(givenDateTime.getFullYear(), givenDateTime.getMonth(), givenDateTime.getDate());
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+
+    const timeDifferenceInMilliseconds = now.getTime() - givenDateTime.getTime();
+    const timeDifferenceInMinutes = timeDifferenceInMilliseconds / (1000 * 60);
+
+    if (timeDifferenceInMinutes < 1) {
+        return "now";
+    } else if (givenDate.getTime() === today.getTime()) {
+        return "today";
+    } else if (givenDate.getTime() === yesterday.getTime()) {
+        return "yesterday";
+    } else {
+        return dateTimeString; // Or you can format it as needed
+    }
+}
 
 
 }

@@ -104,9 +104,7 @@
     </h2>
     <div class="contact" *ngFor="let ch of chatroom" (click)="fetchMessages(ch.name,ch.user_email)">
       <div class="pic danvers"></div>
-      <div class="badge">
-        0
-      </div>
+     
       <div class="name">
         {{ch.room_name}}
       </div>
@@ -138,12 +136,12 @@
       <ng-container *ngFor="let item of messages">
         <div class="message stark" *ngIf="item.sender!=='Administrator' else sender;">
           {{item.content}}<br>
-          <small style="font-size:10px;">{{item.creation|date:"shortTime" }}</small>
+          <small style="font-size:10px;">{{ convertDateTimeToHumanReadable(item.creation) }}</small>
         </div>
         <ng-template #sender>
           <div class="message  parker">
             {{item.content}}<br>
-            <small style="font-size:10px;">{{item.creation|date:"shortTime"}}</small>
+            <small style="font-size:10px;">{{convertDateTimeToHumanReadable(item.creation)}}</small>
           </div>
         </ng-template>
       </ng-container>

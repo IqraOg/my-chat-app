@@ -104,5 +104,27 @@ room: any;
     } catch (err) { }
   }
  
- 
+  convertDateTimeToHumanReadable(dateTimeString: string): string {
+    const givenDateTime = new Date(dateTimeString);
+    const now = new Date();
+
+    const givenDate = new Date(givenDateTime.getFullYear(), givenDateTime.getMonth(), givenDateTime.getDate());
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+
+    const timeDifferenceInMilliseconds = now.getTime() - givenDateTime.getTime();
+    const timeDifferenceInMinutes = timeDifferenceInMilliseconds / (1000 * 60);
+
+    if (timeDifferenceInMinutes < 1) {
+        return "now";
+    } else if (givenDate.getTime() === today.getTime()) {
+        return "today";
+    } else if (givenDate.getTime() === yesterday.getTime()) {
+        return "yesterday";
+    } else {
+        return dateTimeString; // Or you can format it as needed
+    }
+}
+
 }
